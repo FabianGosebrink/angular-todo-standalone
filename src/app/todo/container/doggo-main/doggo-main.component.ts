@@ -1,12 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../../../environments/environment';
 import { Todo } from '../../models/todo';
 import { DoggoFormComponent } from '../../presentational/doggo-form/doggo-form.component';
@@ -26,17 +21,12 @@ import { DoggoListComponent } from '../../presentational/doggo-list/doggo-list.c
 })
 export class DoggoMainComponent {
   items: Todo[] = [];
-  form: FormGroup;
 
   constructor(private readonly http: HttpClient) {}
 
   ngOnInit(): void {
     this.http.get<Todo[]>(`${environment.apiUrl}todos/`).subscribe((items) => {
       this.setSortedItems(items);
-    });
-
-    this.form = new FormGroup({
-      todoValue: new FormControl('', Validators.required),
     });
   }
 
@@ -49,8 +39,6 @@ export class DoggoMainComponent {
         const mergedItems = [...this.items, addedItem];
         this.setSortedItems(mergedItems);
       });
-
-    this.form.reset();
   }
 
   deleteTodo(item: Todo): void {
