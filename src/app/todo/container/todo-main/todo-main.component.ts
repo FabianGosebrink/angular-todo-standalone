@@ -4,22 +4,22 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../../../environments/environment';
 import { Todo } from '../../models/todo';
-import { DoggoFormComponent } from '../../presentational/doggo-form/doggo-form.component';
-import { DoggoListComponent } from '../../presentational/doggo-list/doggo-list.component';
+import { TodoFormComponent } from '../../presentational/todo-form/todo-form.component';
+import { TodoListComponent } from '../../presentational/todo-list/todo-list.component';
 
 @Component({
-  selector: 'app-doggo-main',
+  selector: 'app-todo-main',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    DoggoListComponent,
-    DoggoFormComponent,
+    TodoListComponent,
+    TodoFormComponent,
   ],
-  templateUrl: './doggo-main.component.html',
-  styleUrls: ['./doggo-main.component.css'],
+  templateUrl: './todo-main.component.html',
+  styleUrls: ['./todo-main.component.css'],
 })
-export class DoggoMainComponent {
+export class TodoMainComponent {
   items: Todo[] = [];
 
   constructor(private readonly http: HttpClient) {}

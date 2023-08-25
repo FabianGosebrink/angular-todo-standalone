@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { DoggoMainComponent } from './container/doggo-main/doggo-main.component';
+import { TodoMainComponent } from './container/todo-main/todo-main.component';
 
 export const TODO_ROUTES: Routes = [
   {
     path: '',
-    component: DoggoMainComponent,
+    component: TodoMainComponent,
   },
 ];
